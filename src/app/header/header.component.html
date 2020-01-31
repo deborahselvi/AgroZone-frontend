@@ -1,0 +1,21 @@
+
+<header class="header-area clearfix" [ngClass]="status ? 'bp-xs-on' : ''">
+    <!-- Close Icon -->
+    <div class="nav-close">
+        <fa-icon [icon]="faWindowClose" (click)="closeHeaderArea()"></fa-icon>
+    </div>
+    <!-- Logo -->
+    <div class="logo">
+        <a [routerLink]="home"><img src="../assets/images/crops-clipart-illustration-8.png" alt="AgroZone" height="100" width="100"></a>
+    </div>
+    <!-- Amado Nav -->
+    <nav class="amado-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a routerLink="/agribusiness">Agriculture Business</a></li>
+            <li><a href="product-details.html">Product</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+    </nav>
+</header>
