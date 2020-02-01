@@ -1,0 +1,28 @@
+<h2>Crop yield prediction</h2>
+<form #cropyield="ngForm" (ngSubmit)="onSubmit(cropyield)" novalidate>
+<div class="box">
+    <label for ="state">State : </label>
+    <ng-select [items]="statesArray" [(ngModel)]="selectedState" (change)="onSelectedState()" name="state">
+    </ng-select>
+  </div>
+  <div class="box">
+    <label for ="district">District : </label>
+    <ng-select [items]="districtsArray" [(ngModel)]="selectedDistrict" name="district">
+    </ng-select>
+  </div>
+  <div class="box">
+    <label for ="season">Season : </label>
+    <ng-select [items]="season" [(ngModel)]="selectedSeason" name="season">
+    </ng-select>
+  </div>
+  <div class="box">
+    <label for ="crop">Crop : </label>
+    <ng-select [items]="crop" [(ngModel)]="selectedCrop" name="crop">
+    </ng-select>
+  </div>
+  <div class="box">
+    <label for ="area">Area : </label>
+    <input class="inputbox" [(ngModel)]="area" name="area">
+  </div>
+  <button type="submit">Predict Crop Yield</button>
+</form>
