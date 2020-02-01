@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { CropPredComponent } from './crop-pred/crop-pred.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path:'croppred', component:CropPredComponent},
   { path:'feedback', component:FeedbackComponent},
   { path:'login', component:LoginComponent },
+  { path:'register', component:RegisterComponent },
   { path:'', component:CropPredComponent}
 ];
 

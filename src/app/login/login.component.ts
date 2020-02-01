@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private authenticationService: AuthenticationService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private http: HttpClient
   ) {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) { 

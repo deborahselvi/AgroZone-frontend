@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from 'src/shared/services/data-service.service';
+import { DataServiceService } from 'src/shared/services/data-services.service';
 
 @Component({
   selector: 'app-mobile-nav',

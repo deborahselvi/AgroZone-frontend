@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from 'src/shared/services/data-service.service';
+import { DataServiceService } from 'src/shared/services/data-services.service';
 // import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { faWindowClose } from '@fortawesome/free-regular-svg-icons';
 
