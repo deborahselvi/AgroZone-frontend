@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Prediction } from './prediction';
 
 @Component({
   selector: 'app-crop-pred',
@@ -942,8 +944,9 @@ states = [
   area : number;
   statesArray : any = [];
   districtsArray : any = [];
+  prediction:number;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
     this.states.forEach(s =>{
@@ -959,7 +962,15 @@ states = [
     });
   }
   onSubmit(cropyield : NgForm){
-    console.log(cropyield.value);
+    this.http.post("http://deborahselvi.pythonanywhere.com/results",cropyield.value).subscribe(
+      (val) => {
+        this.prediction = val['prediction'];
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      });
   }
-
 }
