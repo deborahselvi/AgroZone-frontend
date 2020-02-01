@@ -85,8 +85,13 @@ $footer-color: #2d2d2d;
 // Secondary Color
 $secondary-color: #3c3c3c;
 
-h2{
+h1{
     text-align: center;
+    color: $bg-default;
+    padding: 10px 0 10px 0;
+}
+
+h2{
     padding: 10px 0 10px 0;
     color: $dark-color;
 }
@@ -298,6 +303,9 @@ ol {
         }
     }
     .shop_sidebar_area {
+        height: calc(100vh);
+        overflow-y: scroll;
+        overflow-x: hidden;
         position: relative;
         z-index: 1;
         @include flex(0 0 230px);

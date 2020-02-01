@@ -12,6 +12,7 @@ import { ProductAreaComponent } from './product-area/product-area.component';
 import { CropPredComponent } from './crop-pred/crop-pred.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HeaderComponent,
     MobileNavComponent,
     ProductAreaComponent,
-    CropPredComponent
+    CropPredComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
