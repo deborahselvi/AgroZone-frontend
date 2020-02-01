@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -46,24 +46,35 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-      this.submitted = true;
+    this.submitted = true;
 
-      // stop here if form is invalid
-      if (this.loginForm.invalid) {
-          return;
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+        return;
+    }
+
+    this.loading = true;
+    console.log(this.f.username.value)
+    let urlSearchParams={
+      'username':this.f.username.value,
+      'password':this.f.password.value
+    };
+    let header = new HttpHeaders({'content-type': 'application/json'});
+    this.http.post<{prediction:String}>("https://deborahselvi.pythonanywhere.com/loginapi",urlSearchParams,{headers : header}).subscribe(
+    (response)=>
+      {
+        if(response['status']=='Success')
+        {
+          this.router.navigate(['/croppred']);
+        }
+        else
+        {
+          alert("Please Enter valid Username and Password")
+        }
+      },
+      (error)=>{
+          alert("Something went wrong");
       }
-
-      this.loading = true;
-      this.authenticationService.login(this.f.username.value, this.f.password.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                  this.router.navigate([this.returnUrl]);
-              },
-              error => {
-                  this.alertService.error(error);
-                  this.loading = false;
-              });
-  }
-
+    );
+}
 }

@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     CropPredComponent,
     FeedbackComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
