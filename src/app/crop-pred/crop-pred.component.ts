@@ -973,4 +973,30 @@ states = [
           console.log("The POST observable is now completed.");
       });
   }
+  storeForLaterUse(cropyield : NgForm){
+     console.log(cropyield.value.state)
+     let cropyieldParams={
+        'state':cropyield.value.state,
+        'district':cropyield.value.district,
+        'season':cropyield.value.season,
+        'crop':cropyield.value.crop,
+        'area':cropyield.value.area,
+        'predictedval':this.prediction
+      };
+      this.http.post("http://deborahselvi.pythonanywhere.com/predictiondata",cropyieldParams).subscribe(
+         (res)=>{
+            if(res['status']=='Success')
+                    {
+                      alert('Prediction stored successfully. Refer in the feedback section for details.');
+                    }
+                    else
+                    {
+                      alert("Couldn't process request")
+                    }
+         },
+         (error)=>{
+             alert("Something went wrong");
+         }
+      )
+  }
 }

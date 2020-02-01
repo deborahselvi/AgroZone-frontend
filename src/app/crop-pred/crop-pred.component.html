@@ -26,4 +26,8 @@
   </div>
   <button type="submit">Predict Crop Yield</button>
 </form>
-<div *ngIf="prediction">Predicted Value is {{prediction}}</div>
+<div *ngIf="prediction">
+  Predicted Value is {{prediction}}
+
+  <button (click)="storeForLaterUse(cropyield)">Save this prediction</button>
+</div>
